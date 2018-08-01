@@ -14,12 +14,10 @@ export default function initMap(ymaps, containerId) {
     gridSize: 64,
     clusterIconLayout: 'default#pieChart',
     clusterDisableClickZoom: false,
-    geoObjectOpenBalloonOnClick: false,
-    geoObjectHideIconOnBalloonOpen: false,
+    geoObjectOpenBalloonOnClick: true,
+    geoObjectHideIconOnBalloonOpen: true,
     geoObjectBalloonContentLayout: getDetailsContentLayout(ymaps)
   });
-
-  objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
 
   loadList().then(data => {
     objectManager.add(data);
@@ -28,9 +26,10 @@ export default function initMap(ymaps, containerId) {
   
   // details
   objectManager.objects.events.add('click', event => {
-    const objectId = event.get('objectId');
+   
+    const objectId = event.get('objectId'); 
+    
     const obj = objectManager.objects.getById(objectId);
-
     objectManager.objects.balloon.open(objectId);
 
     if (!obj.properties.details) {
@@ -51,6 +50,5 @@ export default function initMap(ymaps, containerId) {
       obj => filters[obj.isActive ? 'active' : 'defective']
     );
   });
-
 
 }
