@@ -23,8 +23,9 @@ export default function initMap(ymaps, containerId) {
 
   loadList().then(data => {
     objectManager.add(data);
+    myMap.geoObjects.add(objectManager);
   });
-
+  
   // details
   objectManager.objects.events.add('click', event => {
     const objectId = event.get('objectId');
@@ -50,4 +51,6 @@ export default function initMap(ymaps, containerId) {
       obj => filters[obj.isActive ? 'active' : 'defective']
     );
   });
+
+
 }
