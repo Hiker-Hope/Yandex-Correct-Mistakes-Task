@@ -2,7 +2,7 @@ import { loadList, loadDetails } from './api';
 import { getDetailsContentLayout } from './details';
 import { createFilterControl } from './filter';
 
-export default function initMap(ymaps, containerId) {
+export default function initMap (ymaps, containerId) {
   const myMap = new ymaps.Map(containerId, {
     center: [55.76, 37.64],
     controls: [],
@@ -23,12 +23,11 @@ export default function initMap(ymaps, containerId) {
     objectManager.add(data);
     myMap.geoObjects.add(objectManager);
   });
-  
+
   // details
   objectManager.objects.events.add('click', event => {
-   
-    const objectId = event.get('objectId'); 
-    
+    const objectId = event.get('objectId');
+
     const obj = objectManager.objects.getById(objectId);
     objectManager.objects.balloon.open(objectId);
 
@@ -50,5 +49,4 @@ export default function initMap(ymaps, containerId) {
       obj => filters[obj.isActive ? 'active' : 'defective']
     );
   });
-
 }
