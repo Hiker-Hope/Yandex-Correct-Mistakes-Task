@@ -40,3 +40,8 @@ body,
 .details-state_connections {
   background-color: gray;
 }
+
+#map {
+  width: 100vw;
+  height: 100vh;
+}
