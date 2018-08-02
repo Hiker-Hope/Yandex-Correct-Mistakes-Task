@@ -14,8 +14,6 @@ export default function initMap (ymaps, containerId) {
     gridSize: 64,
     clusterIconLayout: 'default#pieChart',
     clusterDisableClickZoom: false,
-    geoObjectOpenBalloonOnClick: true,
-    geoObjectHideIconOnBalloonOpen: true,
     geoObjectBalloonContentLayout: getDetailsContentLayout(ymaps)
   });
 
